@@ -16,6 +16,9 @@ public class ArrayAverage {
         int[] numbers = new int[10];
         int i = 0;
 
+        System.out.println("This program gives you the average of an array.");
+        System.out.println("The user will be prompted to enter 10 numbers.");
+
         while (i < numbers.length){
             try {
                 System.out.println("Please enter a number: ");
