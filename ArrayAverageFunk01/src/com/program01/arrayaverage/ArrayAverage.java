@@ -29,7 +29,7 @@ public class ArrayAverage {
             }
         }
 
-        double average = sum / 10;
+        double average = sum / numbers.length;
 
         System.out.println("Average value of array elements is: " + average);
 
