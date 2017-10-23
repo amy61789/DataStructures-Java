@@ -21,7 +21,6 @@ public class HashMapDS {
 
             while(!((line = in.readLine()) == null)){
                 System.out.println(line);
-                //String[] words = line.split(" ");
                 String[] words = line.trim().replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
 
                 for(int i = 0; i < words.length; i++){
