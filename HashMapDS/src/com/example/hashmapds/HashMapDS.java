@@ -20,8 +20,8 @@ public class HashMapDS {
             System.out.println("Agile Manifesto \n");
 
             while(!((line = in.readLine()) == null)){
-                System.out.println(line);
-                String[] words = line.trim().replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
+
+                String[] words = line.trim().replaceAll("--", " ").replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
 
                 for(int i = 0; i < words.length; i++){
                     if(agileMap.containsKey(words[i])){
@@ -30,23 +30,15 @@ public class HashMapDS {
                         agileMap.put(words[i], 1);
                     }
                 }
-
             }
-
-            Set<Map.Entry<String, Integer>> entries = agileMap.entrySet();
-            System.out.println("\nHashMap before sorting: \n");
-            for(Map.Entry<String, Integer> entry : entries){
-                System.out.println(entry.getKey() + " => " + entry.getValue()); }
 
             TreeMap<String, Integer> sorted = new TreeMap<>(agileMap);
             Set<Map.Entry<String, Integer>> mappings = sorted.entrySet();
-
-            System.out.println("\nHashMap after sorting by keys alphabetically: \n");
+            System.out.println("\nTreeMap after sorting by keys alphabetically: \n");
             for(Map.Entry<String, Integer> mapping : mappings){
                 System.out.println(mapping.getKey() + " => " + mapping.getValue()); }
 
-
-            System.out.print("\nHashMap after sorting by values in descending order: \n");
+            System.out.println("\nHashMap after sorting by values in descending order: \n");
             for(Map.Entry<String, Integer> s: sortByValue(agileMap).entrySet()){
                 System.out.println(s.getKey() + " => " + s.getValue());
             }
