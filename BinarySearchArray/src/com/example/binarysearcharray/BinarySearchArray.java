@@ -60,10 +60,10 @@ public class BinarySearchArray {
             }else if (userInput > sortedArray.get(midPoint)){
                 return recursiveBS(sortedArray, midPoint+1, end, userInput);
             }else {
-                return sortedArray.indexOf(userInput);
+                return midPoint;
             }
         }
-        return (sortedArray.indexOf(userInput));
+        return -1;
     }
 
 
