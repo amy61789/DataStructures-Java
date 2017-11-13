@@ -52,7 +52,7 @@ public class PalindromeTest {
 
     public static Boolean isPalindrome(String s) {
 
-        Stack stack = new Stack();
+        Stack<Character> stack = new Stack<>();
 
         for (int i = 0; i < s.length(); i++) {
             stack.push(s.charAt(i));
