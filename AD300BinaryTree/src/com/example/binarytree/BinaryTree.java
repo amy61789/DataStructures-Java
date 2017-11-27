@@ -2,38 +2,37 @@ package com.example.binarytree;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 public class BinaryTree {
 
     Node root;
 
-    public void addNode(int data){
+    public void addNode(int data) {
 
         Node newNode = new Node(data);
 
-        if(root == null){
+        if (root == null) {
             root = newNode;
-        }else{
+        } else {
             Node currentNode = root;
             Node parent;
 
-            while(true){
+            while (true) {
                 parent = currentNode;
 
-                if(data < currentNode.data){
+                if (data < currentNode.data) {
 
                     currentNode = currentNode.leftChild;
 
-                    if(currentNode == null){
+                    if (currentNode == null) {
 
                         parent.leftChild = newNode;
                         return;
                     }
-                }else{
+                } else {
                     currentNode = currentNode.rightChild;
 
-                    if(currentNode == null){
+                    if (currentNode == null) {
 
                         parent.rightChild = newNode;
                         return;
@@ -42,22 +41,23 @@ public class BinaryTree {
             }
         }
     }
-    private Integer count(Node n){
 
-        if(n == null){
+    private Integer count(Node n) {
+
+        if (n == null) {
             return 0;
-        }else{
+        } else {
             return 1 + count(n.leftChild) + count((n.rightChild));
         }
     }
 
-    public Integer size(){
+    public Integer size() {
         return count(root);
     }
 
-    private Integer sumOfNodes(Node n){
+    private Integer sumOfNodes(Node n) {
 
-        if(root == null){
+        if (root == null) {
             System.out.println("Tree is empty!");
             return -1;
         }
@@ -65,44 +65,46 @@ public class BinaryTree {
         queue.offer(root);
         int totalSum = 0;
 
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             Node node = queue.poll();
             totalSum += node.data;
-            if(node.leftChild != null){
+            if (node.leftChild != null) {
                 queue.offer(node.leftChild);
-            }if(node.rightChild != null){
+            }
+            if (node.rightChild != null) {
                 queue.offer(node.rightChild);
             }
         }
         return totalSum;
     }
 
-    public Integer sumNode(){
+    public Integer sumNode() {
         return sumOfNodes(root);
     }
 
-    private Integer findMax(Node n){
+    private Integer findMax(Node n) {
 
-        if(n == null){
+        if (n == null) {
             return -1;
         }
         int max = n.data;
         int leftMax = findMax(n.leftChild);
         int rightMax = findMax(n.rightChild);
 
-        if(leftMax > rightMax){
+        if (leftMax > rightMax) {
             max = leftMax;
-        }if(rightMax > max){
+        }
+        if (rightMax > max) {
             max = rightMax;
         }
         return max;
     }
 
-    public Integer max(){
+    public Integer max() {
         return findMax(root);
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         BinaryTree tree = new BinaryTree();
 
@@ -119,13 +121,13 @@ public class BinaryTree {
     }
 }
 
-class Node{
+class Node {
     int data;
 
     Node leftChild;
     Node rightChild;
 
-    Node(int data){
+    Node(int data) {
 
         this.data = data;
     }
