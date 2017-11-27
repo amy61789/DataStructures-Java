@@ -115,9 +115,9 @@ public class BinaryTree {
         tree.addNode(75);
         tree.addNode(85);
 
-        System.out.println(tree.size());
-        System.out.println(tree.sumNode());
-        System.out.println(tree.max());
+        System.out.println("Number of items in the binary tree: " + tree.size());
+        System.out.println("Sum of binary tree: " + tree.sumNode());
+        System.out.println("Maximum value in binary tree: " + tree.max());
     }
 }
 
